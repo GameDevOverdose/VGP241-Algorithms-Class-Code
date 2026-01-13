@@ -212,7 +212,87 @@ void QuadraticTimeComplexity()
 	PrintDuration();
 }
 
+int DieSum(int die[], int dieAmount)
+{
+	int sum = 0;
+
+	for (int i = 0; i < dieAmount; i++)
+	{
+		sum += die[i];
+	}
+
+	return sum;
+}
+
+void DieRoll(int dieSide, int dieAmount)
+{
+	int die[dieAmount];
+	int dieStart[dieAmount];
+	int endSum = 0;
+
+	//std::cout << "Die " << " (" << dieSide << " sided)" << ": \n";
+
+	for (int i = 0; i < dieAmount; i++)
+	{
+		die[i] = 1;
+		dieStart[i] = 1;
+		endSum += dieSide;
+	}
+
+	int dieTracker = 0;
+
+	do
+	{
+		for (int j = 0; j < dieAmount; j++)
+		{
+			std::cout << "" << die[j] << ", ";
+		}
+
+		if (die[dieTracker] < dieSide)
+		{
+			die[dieTracker]++;
+			//dieTracker = 0;
+		}
+		else
+		{
+			die[dieTracker - 1] = 1;
+			dieTracker++;
+
+			std::cout << "\n";
+		}
+
+		std::cout << "\n";
+	}
+	while (DieSum(die, dieAmount) < endSum);
+}
+
+void Workshop()
+{
+	StartAlgorithm();
+	DieRoll(6, 3);
+	PrintDuration();
+
+	// std::cout << "\n";
+	//
+	// StartAlgorithm();
+	// DieRoll(6, 6);
+	// PrintDuration();
+	//
+	// std::cout << "\n";
+	//
+	// StartAlgorithm();
+	// DieRoll(8, 2);
+	// PrintDuration();
+	//
+	// std::cout << "\n";
+	//
+	// StartAlgorithm();
+	// DieRoll(8, 6);
+	// PrintDuration();
+}
+
 int main()
 {
-	QuadraticTimeComplexity();
+	//ConstantTimeComplexity();
+	Workshop();
 }
