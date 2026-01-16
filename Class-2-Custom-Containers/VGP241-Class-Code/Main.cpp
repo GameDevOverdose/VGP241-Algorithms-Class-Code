@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 #include "Array.h"
 #include "Vector.h"
@@ -75,94 +77,107 @@ void AddPlayer(Vector <Player>* players, Vector <std::string>* names = nullptr)
 {
     Player player;
 
+    player.InitializePlayer();
+
     if (names != nullptr && names->Size() > 0)
     {
         player.SetName(names->operator[](names->Size() - 1));
         names->PopBack();
     }
 
-    player.InitializePlayer();
-
     players->PushBack(player);
 }
 
-float DamageCalculation(Player attacker, Player defender)
+float FightScoreCalculation(const Player& attacker, const Player& defender)
 {
-    //PlayerA(Attack * Stamina) - PlayerB(Defense * Speed) / PlayerB(Health)
+    //PlayerA(Attack * Stamina) - PlayerB(Defense * Speed) / PlayerB(Health) (Old Calc)
+    
+    /*float score = (attacker.GetStat(Attack) * attacker.GetStat(Stamina)) - (defender.GetStat(Defense) * defender.GetStat(Speed));
+    score /= defender.GetStat(Health);*/
 
-    float damage = (attacker.GetStat(Attack) * attacker.GetStat(Stamina)) - (defender.GetStat(Defense) * defender.GetStat(Speed));
-    damage /= defender.GetStat(Health);
+    //playerBHealth - ((playerADamage * playerAStamina) - (playerBDefense * playerBSpeed)) (New Calc)
 
-    return damage;
+	float score = defender.GetStat(Health) - ((attacker.GetStat(Attack) * attacker.GetStat(Stamina)) - (defender.GetStat(Defense) * defender.GetStat(Speed)));
+
+    return score;
 }
 
-void Fight(Vector <Player> players)
+void Fight(Vector <Player>* players)
 {
-    int playerOneIndex = rand() % players.Size();
-    int playerTwoIndex = rand() % players.Size();
+    int playerOneIndex = rand() % players->Size();
+    int playerTwoIndex = rand() % players->Size();
 
     while (playerTwoIndex == playerOneIndex)
     {
-		playerTwoIndex = rand() % players.Size();
+		playerTwoIndex = rand() % players->Size();
     }
 
-    Player playerA = players[playerOneIndex];
-    Player playerB = players[playerTwoIndex];
+    Player playerA = players->operator[](playerOneIndex);
+    Player playerB = players->operator[](playerTwoIndex);
 
-	 playerA.SetStat(Health, playerA.GetStat(Health) - DamageCalculation(playerA, playerB));
-	 playerB.SetStat(Health, playerB.GetStat(Health) - DamageCalculation(playerB, playerA));
+	float playerAScore = FightScoreCalculation(playerA, playerB);
+	float playerBScore = FightScoreCalculation(playerB, playerA);
 
-     if (playerA.GetStat(Health) > playerB.GetStat(Health))
-     {
-		 std::cout << playerA.GetName() << " wins against " << playerB.GetName() << "\n";
-     }
-     else if(playerB.GetStat(Health) > playerA.GetStat(Health))
-     {
-		 std::cout << playerB.GetName() << " wins against " << playerA.GetName() << "\n";
-     }
-     else
-	 {
-		 int toss = rand() % 2;
+    if (playerAScore > playerBScore)
+    {
+	    std::cout << playerA.GetName() << " wins against " << playerB.GetName() << "\n";
+    }
+    else if(playerBScore > playerAScore)
+    {
+	    std::cout << playerB.GetName() << " wins against " << playerA.GetName() << "\n";
+    }
+    else
+	{
+	    int toss = rand() % 2;
 
-         if (toss == 0)
-         {
-             std::cout << playerA.GetName() << " wins against " << playerB.GetName() << " by coin toss\n";
-         }
-         else
-         {
-             std::cout << playerB.GetName() << " wins against " << playerA.GetName() << " by coin toss\n";
-		 }
-	 }
+        if (toss == 0)
+        {
+            std::cout << playerA.GetName() << " wins against " << playerB.GetName() << " by coin toss\n";
+        }
+        else
+        {
+            std::cout << playerB.GetName() << " wins against " << playerA.GetName() << " by coin toss\n";
+	    }
+	}
 }
 
 int main()
 {
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
     Vector <Player> players;
 	Vector <std::string> names;
     
 	PopulateNames(&names);
 
+	int playersToAdd = 10;
+	int totalPlayersToAdd = 20;
+	int playersToRemove = 6;
+
 	//Adding and Displaying 10 players
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < playersToAdd; i++)
     {
         AddPlayer(&players, &names);
         players[i].DisplayPlayer();
     }
+
+    std::cout << "Removing: ";
     
 	//Removing 6 players
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < playersToRemove; i++)
     {
-		std::cout << "Removing " << players[players.Size() - 1].GetName() << "\n";
+		i != playersToRemove - 1 ? std::cout << players[players.Size() - 1].GetName() << ", " : std::cout << players[players.Size() - 1].GetName() << "\n\n";
 		players.PopBack();
     }
 
-    std::cout << "\n";
-
-    while (players.Size() < 20)
+	//Adding until we have 20 players
+    while (players.Size() < totalPlayersToAdd)
     {
         AddPlayer(&players, &names);
 		std::cout << "Added " << players[players.Size()-1].GetName() << "\n";
     }
 
-	Fight(players);
+    std::cout << "\n";
+
+	Fight(&players);
 }

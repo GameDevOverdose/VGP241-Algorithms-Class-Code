@@ -59,7 +59,7 @@ public:
 
         if (size < mSize)
         {
-            for (std::size_t i = 0; i < size; i++)
+            for (std::size_t i = size; i < mSize; i++)
             {
                 mValues[i].~T();
             }
@@ -74,6 +74,7 @@ public:
                 mValues[i] = initValue;
             }
         }
+
         mSize = size;
     }
 
