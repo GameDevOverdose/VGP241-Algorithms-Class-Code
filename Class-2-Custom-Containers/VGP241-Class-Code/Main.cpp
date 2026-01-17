@@ -4,6 +4,7 @@
 
 #include "Array.h"
 #include "Vector.h"
+#include "PriorityQueue.h"
 
 #include "Player.h"
 
@@ -141,13 +142,13 @@ void Fight(Vector <Player>* players)
 	}
 }
 
-int main()
+void Assignment1()
 {
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+	std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-    Vector <Player> players;
+	Vector <Player> players;
 	Vector <std::string> names;
-    
+
 	PopulateNames(&names);
 
 	int playersToAdd = 10;
@@ -155,29 +156,74 @@ int main()
 	int playersToRemove = 6;
 
 	//Adding and Displaying 10 players
-    for (int i = 0; i < playersToAdd; i++)
-    {
-        AddPlayer(&players, &names);
-        players[i].DisplayPlayer();
-    }
+	for (int i = 0; i < playersToAdd; i++)
+	{
+		AddPlayer(&players, &names);
+		players[i].DisplayPlayer();
+	}
 
-    std::cout << "Removing: ";
-    
+	std::cout << "Removing: ";
+
 	//Removing 6 players
-    for (int i = 0; i < playersToRemove; i++)
-    {
+	for (int i = 0; i < playersToRemove; i++)
+	{
 		i != playersToRemove - 1 ? std::cout << players[players.Size() - 1].GetName() << ", " : std::cout << players[players.Size() - 1].GetName() << "\n\n";
 		players.PopBack();
-    }
+	}
 
 	//Adding until we have 20 players
-    while (players.Size() < totalPlayersToAdd)
-    {
-        AddPlayer(&players, &names);
+	while (players.Size() < totalPlayersToAdd)
+	{
+		AddPlayer(&players, &names);
 		std::cout << "Added " << players[players.Size()-1].GetName() << "\n";
-    }
+	}
 
-    std::cout << "\n";
+	std::cout << "\n";
 
 	Fight(&players);
+}
+
+void Iterator()
+{
+	Array<int, 10> myInts;
+
+	for (int i = 0; i < 10; ++i)
+	{
+		myInts[i] = rand() % 100;
+	}
+
+	for (Array<int, 10>::Iterator iter = myInts.Begin(); iter != myInts.End(); ++iter)
+	{
+		std::cout << "Array Value: " << *iter << "\n";
+	}
+
+	std::sort(myInts.Begin(), myInts.End());
+	std::cout << "\n";
+
+	for (Array<int, 10>::Iterator iter = myInts.Begin(); iter != myInts.End(); ++iter)
+	{
+		std::cout << "Sorted Array Value: " << *iter << "\n";
+	}
+}
+
+int main()
+{
+	std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
+	PriorityQueue<int> priorityQueue;
+
+	for (int i = 0; i < 20; i++)
+	{
+		int value = rand() % 100;
+		priorityQueue.Push(value);
+		std::cout << "Pushed Value: " << value << "\n";
+	}
+
+	std::cout << "\n";
+
+	while (!priorityQueue.Empty())
+	{
+		std::cout << "Sorted Value: " << priorityQueue.Top() << "\n";
+		priorityQueue.Pop();
+	}
 }

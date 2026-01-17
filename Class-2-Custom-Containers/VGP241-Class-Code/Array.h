@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstddef>
+#include "ContainerIterator.h"
 
 template<typename T, std::size_t N>
 class Array
@@ -26,49 +27,59 @@ public:
     // destructor when destroyed
     ~Array()
     {
-        delete[] mValues;
-        mValues = nullptr;
-    }
-
-    Array(const Array<T, N>& cpy)
-    {
-        mValues = new T[N];
-        for (int i = 0; i < N; ++i)
+        if (mValues != nullptr)
         {
-            mValues[i] = cpy.mValues[i];
+            delete[] mValues;
+            mValues = nullptr;
         }
     }
 
-    Array(Array<T, N>&& cpy)
+    //Gets called when Array<int, 5> int array = otherArray;
+    Array(const Array& other)
     {
         mValues = new T[N];
+
         for (int i = 0; i < N; ++i)
         {
-            mValues[i] = std::move(cpy.mValues[i]);
+            mValues[i] = other.mValues[i];
         }
-        delete[] cpy.mValues;
-        cpy.mValues = nullptr;
     }
 
-    Array& operator=(const Array<T, N>& cpy)
+    //Get called when Array<int, 5> int array = std::move(otherArray);
+    Array(Array&& other)
     {
+        mValues = std::move(other.mValues);
+        other.mValues = nullptr;
+    }
+
+    //Get called when Array<int, 5> int array = otherArray;
+    Array& operator=(const Array& other)
+    {
+        if (mValues != nullptr)
+        {
+            delete[] mValues;
+        }
+
         mValues = new T[N];
+
         for (int i = 0; i < N; ++i)
         {
-            mValues[i] = cpy.mValues[i];
+            mValues[i] = other.mValues[i];
         }
+
         return *this;
     }
-    Array& operator=(Array<T, N>&& cpy)
-    {
-        mValues = new T[N];
-        for (int i = 0; i < N; ++i)
-        {
-            mValues[i] = std::move(cpy.mValues[i]);
-        }
-        delete[] cpy.mValues;
-        cpy.mValues = nullptr;
 
+    //Get called when Array<int, 5> int array = std::move(otherArray);
+    Array& operator=(Array&& other)
+    {
+        if (mValues != nullptr)
+        {
+            delete[] mValues;
+        }
+
+        mValues =std::move(other.mValues);
+        other.mValues = nullptr;
         return *this;
     }
 
@@ -77,11 +88,13 @@ public:
     {
         return N;
     }
+
     // gets the data stored in the array
     T* Data()
     {
         return mValues;
     }
+
     // const version
     const T* Data() const
     {
@@ -95,11 +108,22 @@ public:
         // eg: assert, throw/catch
         return mValues[index];
     }
+
     // const version
     const T& operator[](std::size_t index) const
     {
         return mValues[index];
     }
+
+    //Iterators
+    using Iterator = ContainerIterator<T>;
+    using Const_Iterator = ContainerIterator<const T>;
+
+    Iterator Begin() {return Iterator(mValues);}
+    Iterator End() {return Iterator(mValues + N);}
+
+    Const_Iterator Begin() const {return Const_Iterator(mValues);}
+    Const_Iterator End() const {return Const_Iterator(mValues + N);}
 
 private:
     T* mValues = nullptr;

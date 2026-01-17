@@ -29,6 +29,74 @@ public:
         mSize = 0;
     }
 
+    Vector(const Vector& other)
+    {
+        if (other.mCapacity > 0)
+        {
+            mValues = new T[other.mCapacity];
+
+            for (int i = 0; i < other.mCapacity; i++)
+            {
+                mValues[i] = other.mValues[i];
+            }
+        }
+        mSize = other.mSize;
+        mCapacity = other.mCapacity;
+    }
+
+    Vector(Vector&& other)
+    {
+        mValues = other.mValues;
+        mSize = other.mSize;
+        mCapacity = other.mCapacity;
+
+        other.mValues = nullptr;
+        other.mSize = 0;
+        other.mCapacity = 0;
+    }
+
+    Vector& operator=(const Vector& other)
+    {
+        if (mValues != nullptr)
+        {
+            delete[] mValues;
+        }
+
+        if (other.mCapacity > 0)
+        {
+            mValues = new T[other.mCapacity];
+
+            for (int i = 0; i < other.mCapacity; i++)
+            {
+                mValues[i] = other.mValues[i];
+            }
+        }
+
+        mSize = other.mSize;
+        mCapacity = other.mCapacity;
+
+        return *this;
+    }
+
+    Vector& operator=(Vector&& other)
+    {
+        if (mValues != nullptr)
+        {
+            delete[] mValues;
+            mValues = nullptr;
+        }
+
+        mValues = other.mValues;
+        mSize = other.mSize;
+        mCapacity = other.mCapacity;
+
+        other.mValues = nullptr;
+        other.mSize = 0;
+        other.mCapacity = 0;
+
+        return *this;
+    }
+
     //Reserve, allocate data for space requirements (only if increasing capacity)
     void Reserve(std::size_t capacity)
     {
@@ -120,6 +188,16 @@ public:
         assert(index < mSize);
         return mValues[index];
     }
+
+    //Iterators
+    using Iterator = ContainerIterator<T>;
+    using Const_Iterator = ContainerIterator<const T>;
+
+    Iterator Begin() {return Iterator(mValues);}
+    Iterator End() {return Iterator(mValues + mSize);}
+
+    Const_Iterator Begin() const {return Const_Iterator(mValues);}
+    Const_Iterator End() const {return Const_Iterator(mValues + mSize);}
 
 private:
     T* mValues = nullptr;
