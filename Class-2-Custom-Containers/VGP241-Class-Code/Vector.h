@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <cassert>
 
+#include "ContainerIterator.h"
+
 template<typename T>
 
 class Vector

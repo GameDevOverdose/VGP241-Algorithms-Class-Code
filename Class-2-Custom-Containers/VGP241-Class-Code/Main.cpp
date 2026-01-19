@@ -7,6 +7,7 @@
 #include "PriorityQueue.h"
 
 #include "Player.h"
+#include "Inventory.h"
 
 void CustomContainersTest()
 {
@@ -183,7 +184,7 @@ void Assignment1()
 	Fight(&players);
 }
 
-void Iterator()
+void IteratorTest()
 {
 	Array<int, 10> myInts;
 
@@ -206,24 +207,35 @@ void Iterator()
 	}
 }
 
+void PriorityQueueTest()
+{
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
+    PriorityQueue<int> priorityQueue;
+
+    for (int i = 0; i < 20; i++)
+    {
+        int value = rand() % 100;
+        priorityQueue.Push(value);
+        std::cout << "Pushed Value: " << value << "\n";
+    }
+
+    std::cout << "\n";
+
+    while (!priorityQueue.Empty())
+    {
+        std::cout << "Sorted Value: " << priorityQueue.Top() << "\n";
+        priorityQueue.Pop();
+    }
+}
+
+
 int main()
 {
-	std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-	PriorityQueue<int> priorityQueue;
+	Inventory inventory;
 
-	for (int i = 0; i < 20; i++)
-	{
-		int value = rand() % 100;
-		priorityQueue.Push(value);
-		std::cout << "Pushed Value: " << value << "\n";
-	}
-
-	std::cout << "\n";
-
-	while (!priorityQueue.Empty())
-	{
-		std::cout << "Sorted Value: " << priorityQueue.Top() << "\n";
-		priorityQueue.Pop();
-	}
+	inventory.Initialize(100);
+	inventory.DisplayInventory();
 }
