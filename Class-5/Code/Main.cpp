@@ -345,6 +345,69 @@ void DeleteKDTree(KDNode* node)
 	}
 }
 
+KDNode* NearestNeigbour(const Vector2& v, KDNode* node, int k)
+{
+	++gRecursiveCount;
+
+	if (node == nullptr)
+	{
+		return nullptr;
+	}
+
+	KDNode* nextBranch = nullptr;
+	KDNode* otherBranch = nullptr;
+
+	if (k == 0)
+	{
+		if (v.x < node->mData.x)
+		{
+			nextBranch = node->mLeft;
+			otherBranch = node->mRight;
+		}
+		else
+		{
+			nextBranch = node->mRight;
+			otherBranch = node->mLeft;
+		}
+	}
+	else
+	{
+		if (v.y < node->mData.y)
+		{
+			nextBranch = node->mLeft;
+			otherBranch = node->mRight;
+		}
+		else
+		{
+			nextBranch = node->mRight;
+			otherBranch = node->mLeft;
+		}
+	}
+
+	KDNode* temp = NearestNeigbour(v, nextBranch, (k + 1) % 2);
+	//KDNode* best = Closest(temp, node, v);
+
+	//float distSqr = DistSquared(v, best->mData);
+	float planeDist = 0.0f;
+
+	if (k == 0)
+	{
+		planeDist = v.x - node->mData.x;
+	}
+	else
+	{
+		planeDist = v.y - node->mData.y;
+	}
+
+	// if (distSqr >= planeDist * planeDist)
+	// {
+	// 	temp = NearestNeigbour(v, otherBranch, (k + 1) % 2);
+	// 	best = Closest(temp, best, v);
+	// }
+
+	//return best;
+}
+
 int main()
 {
 	Vector2 v;
@@ -415,7 +478,6 @@ int main()
 	std::cout << "Delete Node: (" << deleteVector.x << ", " << deleteVector.y << ")\n";
 
 	PrintRange(minRange, maxRange, root, 0);
-	
 
 	DeleteKDTree(root);
 }
