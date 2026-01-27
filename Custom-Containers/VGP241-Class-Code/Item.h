@@ -2,9 +2,9 @@
 
 #include <string>
 
-enum ItemType
+enum class ItemType
 {
-	SmallHealth,
+	SmallHealth = 0,
 	MedHealth,
 	LightningSpell,
 	Grenade,

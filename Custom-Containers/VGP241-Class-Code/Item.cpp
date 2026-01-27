@@ -3,7 +3,7 @@
 #include "Item.h"
 
 Item::Item()
-	: mType(SmallHealth)
+	: mType(ItemType::SmallHealth)
 	, mValue(0)
 	, mCount(1)
 	, mName("Default Item")
@@ -20,16 +20,16 @@ Item::Item(ItemType itemType, int value)
 {
 	switch (mType)
 	{
-	case SmallHealth:
+	case ItemType::SmallHealth:
 		mName = "Small Health Potion";
 		break;
-	case MedHealth:
+	case ItemType::MedHealth:
 		mName = "Medium Health Potion";
 		break;
-	case LightningSpell:
+	case ItemType::LightningSpell:
 		mName = "Lightning Spell";
 		break;
-	case Grenade:
+	case ItemType::Grenade:
 		mName = "Grenade";
 		break;
 	default:

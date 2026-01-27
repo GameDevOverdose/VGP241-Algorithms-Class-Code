@@ -26,7 +26,7 @@ public:
     }
 
     //Adds a KDNode to monitor data
-    void AddItem(T* point, const void* userdata)
+    void AddItem(const T* point, const void* userdata)
     {
         KDNode* newNode = new KDNode();
         newNode->point = point;
@@ -154,14 +154,13 @@ private:
         {
             for (int i = 0; i < K; ++i)
             {
-                if (node->point[i] < minRange[i]|| node->point[i] > maxRange[i])
+                if (node->point[i] <= minRange[i] || node->point[i] >= maxRange[i])
                 {
                     isValid = false;
                     break;
                 }
             }
         }
-
 
         if (isValid)
         {

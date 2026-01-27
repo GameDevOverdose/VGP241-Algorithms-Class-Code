@@ -6,7 +6,7 @@
 #include "Array.h"
 #include "Vector.h"
 
-enum Stats
+enum class Stats
 {
 	Health = 0,
 	Attack,

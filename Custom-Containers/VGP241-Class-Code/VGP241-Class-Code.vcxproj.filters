@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Assignment-1">
+      <UniqueIdentifier>{f5cd1afb-43c5-4d0d-8b64-f794c4553690}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Assignment-2">
+      <UniqueIdentifier>{0e952187-4b0f-4f21-a962-5c78ea2872ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Assignment-3">
+      <UniqueIdentifier>{e55c03b8-535f-4223-a878-3f81f7169b09}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ClassCode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Assignment-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>Source Files\Assignment-2</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files\Assignment-2</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment-1.cpp">
+      <Filter>Source Files\Assignment-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment-2.cpp">
+      <Filter>Source Files\Assignment-2</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment-3.cpp">
+      <Filter>Source Files\Assignment-3</Filter>
+    </ClCompile>
+    <ClCompile Include="Pickup.cpp">
+      <Filter>Source Files\Assignment-3</Filter>
+    </ClCompile>
+    <ClCompile Include="PickupManager.cpp">
+      <Filter>Source Files\Assignment-3</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Array.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PriorityQueue.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ContainerIterator.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KDTree.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassCode.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\Assignment-1</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Source Files\Assignment-2</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Source Files\Assignment-2</Filter>
+    </ClInclude>
+    <ClInclude Include="Assignment-1.h">
+      <Filter>Source Files\Assignment-1</Filter>
+    </ClInclude>
+    <ClInclude Include="Assignment-2.h">
+      <Filter>Source Files\Assignment-2</Filter>
+    </ClInclude>
+    <ClInclude Include="Assignment-3.h">
+      <Filter>Source Files\Assignment-3</Filter>
+    </ClInclude>
+    <ClInclude Include="Pickup.h">
+      <Filter>Source Files\Assignment-3</Filter>
+    </ClInclude>
+    <ClInclude Include="PickupManager.h">
+      <Filter>Source Files\Assignment-3</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

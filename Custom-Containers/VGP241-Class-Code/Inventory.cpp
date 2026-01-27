@@ -19,7 +19,7 @@ void Inventory::Initialize(int itemCount)
 	//Not a system that would be used in a real game, but good enough for demonstration and populating the inventory
 	for (int i = 0; i < itemCount; ++i)
 	{
-		int randomItemTypeIndex = rand() % ItemType::Size;
+		int randomItemTypeIndex = rand() % ((int)ItemType::Size);
 		ItemType itemToAddType = static_cast<ItemType>(randomItemTypeIndex);
 		AddItem(itemToAddType);
 	}
