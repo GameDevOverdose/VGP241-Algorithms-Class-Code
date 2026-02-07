@@ -174,9 +174,24 @@ public:
         mSize++;
     }
 
+    //Remove item
     void PopBack()
     {
         Resize(mSize - 1);
+    }
+
+    //Just adding to have a functional queue
+    void PopFront()
+    {
+        //Swaps the front all the way to back
+        for (std::size_t i = 0; i < mSize - 1; ++i)
+        {
+            T tmp = mValues[i];
+            mValues[i] = mValues[i + 1];
+            mValues[i + 1] = tmp;
+        }
+
+        PopBack();
     }
 
     T& operator[](std::size_t index)

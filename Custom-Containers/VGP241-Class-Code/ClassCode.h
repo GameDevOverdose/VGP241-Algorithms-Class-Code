@@ -9,9 +9,14 @@
 #include "Vector.h"
 #include "PriorityQueue.h"
 #include "KDTree.h"
+#include "Graph.h"
+
 #include "Vector2.h"
 
 void CustomContainersTest();
 void IteratorTest();
 void PriorityQueueTest();
 void KDTreeTest();
+void GraphTest();
+void MapTest();
+void TileMapTest();
