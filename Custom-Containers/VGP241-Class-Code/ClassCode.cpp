@@ -464,57 +464,63 @@ void TileMapTest()
 
 	bool isDone = false;
 
+	int width = 0;
+	int height = 0;
+
+	std::cout << "Enter Map Width (1-99): ";
+	std::cin >> width;
+
+	std::cout << "Enter Map Height (1-99): ";
+	std::cin >> height;
+
+	tileMapGraph.Terminate();
+	tileMap.Clear();
+
+	tileMap.Resize(width * height);
+
+	//Add the tile to the graph like a navmesh
+	for (int y = 0; y < height; ++y)
+	{
+		for (int x = 0; x < width; ++x)
+		{
+			int index = x + (y * width);
+
+			tileMap[index].x = x;
+			tileMap[index].y = y;
+		}
+	}
+	//Adding all the tiles to the graph
+	for (int i = 0; i < tileMap.Size(); ++i)
+	{
+		tileMapGraph.AddItem(&tileMap[i]);
+	}
+
+	//Set up links
+	for (int y = 0; y < height; ++y)
+	{
+		for (int x = 0; x < width; ++x)
+		{
+			int currentIndex = x + (y * width);
+
+			if (x + 1 < width)
+			{
+				int rightIndex = (x + 1) + (y * width);
+				tileMapGraph.AddLink(currentIndex, rightIndex);
+			}
+
+			if (y + 1 < height)
+			{
+				int downIndex = x + ((y + 1) * width);
+				tileMapGraph.AddLink(currentIndex, downIndex);
+			}
+		}
+	}
+
 	while (!isDone)
 	{
 		system("cls");
 		std::cout << "Tile Map:\n";
-
-		int width = 0;
-		int height = 0;
-
-		std::cout << "Enter Map Width (1-99): ";
-		std::cin >> width;
-
-		std::cout << "Enter Map Height (1-99): ";
-		std::cin >> height;
-
-		tileMapGraph.Terminate();
-		tileMap.Clear();
-
-		tileMap.Resize(width * height);
-
-		//Add the tile to the graph like a navmesh
-		for (int y = 0; y < height; ++y)
-		{
-			for (int x = 0; x < width; ++x)
-			{
-				int index = x + (y * width);
-				tileMap[index].x = x;
-				tileMap[index].y = y;
-			}
-		}
-
-		//Set up links
-		for (int y = 0; y < height; ++y)
-		{
-			for (int x = 0; x < width; ++x)
-			{
-				int currentIndex = x + (y * width);
-
-				if (x + 1 < width)
-				{
-					int rightIndex = (x + 1) + (y * width);
-					tileMapGraph.AddLink(currentIndex, rightIndex);
-				}
-
-				if (y + 1 < height)
-				{
-					int downIndex = x + ((y + 1) * width);
-					tileMapGraph.AddLink(currentIndex, downIndex);
-				}
-			}
-		}
-
+		ClearTileMap(tileMap);
 		DrawTileMap(width, height, tileMap);
 
 		int startX = 0;
@@ -522,7 +528,7 @@ void TileMapTest()
 		int endX = 0;
 		int endY = 0;
 
-		std::cout << "Enter Start X: ";
+		std::cout << "\nEnter Start X: ";
 		std::cin >> startX;
 
 		std::cout << "Enter Start Y: ";
@@ -533,6 +539,15 @@ void TileMapTest()
 
 		std::cout << "Enter End Y: ";
 		std::cin >> endY;
+
+		system("cls");
+
+		if (startX > width || endX > width || startY > height || endY > height)
+		{
+			break;
+		}
+
+		std::cout << "Path from (" << startX << ", " << startY << ") to (" << endX << ", " << endY << ") (DFS): \n\n";
 
 		int startIndex = startX + (startY * width);
 		int endIndex = endX + (endY * width);
@@ -550,23 +565,36 @@ void TileMapTest()
 
 		DrawTileMap(width, height, tileMap);
 
-		std::cout << "Path from (" << startX << ", " << startY << ") to (" << endX << ", " << endY << ") (DFS): \n";
-
+		std::cout << "\nNext (BFS): ";
 		std::cin >> input;
-		system("cls");
-		path.Clear();
 
+		if (input == "no")
+		{
+			break;
+		}
+
+		std::cout << "\nPath from (" << startX << ", " << startY << ") to (" << endX << ", " << endY << ") (BFS): \n\n";
+
+		path.Clear();
 		ClearTileMap(tileMap);
 
 		if (tileMapGraph.GetPathBFS(startIndex, endIndex, path))
 		{
 			for (int i = 0; i < path.Size(); ++i)
 			{
-
+				int index = path[i]->x + (path[i]->y * width);
+				tileMap[index].isInPath = true;
 			}
 		}
 
+		DrawTileMap(width, height, tileMap);
+
+		std::cout << "\nRetry: ";
 		std::cin >> input;
-		isDone = input == "done";
+
+		if (input == "no")
+		{
+			break;
+		}
 	}
 }
