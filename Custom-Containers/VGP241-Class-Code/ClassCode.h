@@ -10,6 +10,7 @@
 #include "PriorityQueue.h"
 #include "KDTree.h"
 #include "Graph.h"
+#include "UnorderedMap.h"
 
 #include "Vector2.h"
 
@@ -20,3 +21,4 @@ void KDTreeTest();
 void GraphTest();
 void MapTest();
 void TileMapTest();
+void UnorderedMapTest();

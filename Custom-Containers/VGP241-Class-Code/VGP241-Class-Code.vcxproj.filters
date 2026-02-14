@@ -107,5 +107,11 @@
     <ClInclude Include="Graph.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnorderedMap.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

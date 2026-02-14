@@ -32,13 +32,15 @@ void AssignmentSelector()
 
 int main()
 {
+	UnorderedMapTest();
+
 	//Assignment1();
 	//Assignment2();
 	//Assignment3();
 
 	//Comment out to disable question selector
-	while (true)
+	/*while (true)
 	{
 		AssignmentSelector();
-	}
+	}*/
 }

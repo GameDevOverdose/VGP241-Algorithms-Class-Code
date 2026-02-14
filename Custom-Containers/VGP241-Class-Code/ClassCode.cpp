@@ -1,4 +1,5 @@
 #include "ClassCode.h"
+#include "Globals.h"
 
 ////////////////////////////////   WEEK-1   //////////////////////////////////
 
@@ -569,4 +570,38 @@ void TileMapTest()
 		std::cin >> input;
 		isDone = input == "done";
 	}
+}
+
+////////////////////////////////   WEEK-7   //////////////////////////////////
+
+void UnorderedMapTest()
+{
+	UnorderedMap<std::string, int> myCarPrices;
+
+	myCarPrices.Insert("Ford", 10000);
+	myCarPrices.Insert("Chevy", 25000);
+	myCarPrices["Dodge"] = 30000;
+	myCarPrices["BMW"] = 100000;
+
+	std::cout << "Price of Ford " << myCarPrices["Ford"] << "\n";
+	std::cout << "Price of Chevy " << myCarPrices["Chevy"] << "\n";
+	std::cout << "Price of Dodge " << myCarPrices["Dodge"] << "\n";
+	std::cout << "Price of BMW " << myCarPrices["BMW"] << "\n";
+
+	std::cout << "Number of Cars " << myCarPrices.Count() << "\n";
+
+	myCarPrices.Remove("Ford");
+
+	std::cout << "Has Ford " << myCarPrices.Has("Ford") << "\n";
+	std::cout << "Number of Cars " << myCarPrices.Count() << "\n";
+	std::cout << "Price of Ford " << myCarPrices["Ford"] << "\n";
+	std::cout << "Number of Cars " << myCarPrices.Count() << "\n";
+
+	std::cout << "Hash Values: \n";
+
+	std::cout << "RAT: " << Globals::HashFunction("RAT") << "\n";
+	std::cout << "TAR: " << Globals::HashFunction("TAR") << "\n";
+	std::cout << "Ford: " << Globals::HashFunction("Ford") << "\n";
+	std::cout << "Chevy: " << Globals::HashFunction("Chevy") << "\n";
+	std::cout << "Dodge: " << Globals::HashFunction("Dodge") << "\n";
 }
