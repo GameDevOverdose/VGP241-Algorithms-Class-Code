@@ -10,6 +10,7 @@
 #include "PriorityQueue.h"
 #include "KDTree.h"
 #include "Graph.h"
+#include "Globals.h"
 #include "UnorderedMap.h"
 
 #include "Vector2.h"

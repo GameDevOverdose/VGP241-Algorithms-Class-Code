@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Assignment-3">
       <UniqueIdentifier>{e55c03b8-535f-4223-a878-3f81f7169b09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Assignment-4">
+      <UniqueIdentifier>{a9f2f742-e489-4e63-952e-85239bae4b0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClassCode.cpp">
@@ -53,6 +56,18 @@
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Assignment-4</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment-4.cpp">
+      <Filter>Source Files\Assignment-4</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Source Files\Assignment-4</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files\Assignment-4</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +127,18 @@
     </ClInclude>
     <ClInclude Include="UnorderedMap.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Assignment-4.h">
+      <Filter>Source Files\Assignment-4</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Source Files\Assignment-4</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Source Files\Assignment-4</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Source Files\Assignment-4</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

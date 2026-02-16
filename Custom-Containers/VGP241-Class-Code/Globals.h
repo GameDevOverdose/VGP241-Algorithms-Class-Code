@@ -7,7 +7,7 @@
 
 namespace Globals
 {
-	std::size_t HashFunction(const std::string& str)
+	inline std::size_t HashFunction(const std::string& str)
 	{
 		std::size_t hash = 0;
 

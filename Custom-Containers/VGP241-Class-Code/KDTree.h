@@ -67,19 +67,19 @@ public:
         mRoot = BuildTree(mNodes, 0);
     }
 
-    void FindInRange(Vector<const void*>& result, const T* minRange,
+    void FindInRange(Vector<const void*>& textureLines, const T* minRange,
         const T* maxRange, std::function<bool(const void*)> filterCB = nullptr)
     {
-        FindInRange(result, minRange, maxRange, mRoot, 0, filterCB);
+        FindInRange(textureLines, minRange, maxRange, mRoot, 0, filterCB);
     }
 
     const void* FindNearest(const T* target)
     {
-        KDNode* result = FindNearest(target, mRoot, 0);
+        KDNode* textureLines = FindNearest(target, mRoot, 0);
 
-        if (result != nullptr)
+        if (textureLines != nullptr)
         {
-            return result->userData;
+            return textureLines->userData;
         }
 
         return nullptr;

@@ -3,13 +3,16 @@
 #include "Assignment-1.h"
 #include "Assignment-2.h"
 #include "Assignment-3.h"
+#include "Assignment-4.h"
 
 void AssignmentSelector()
 {
 	int assignmentInput = -1;
 
-	std::cout << "\nHello Darren! Please input the assignment number you'd like to test (1-3): ";
+	std::cout << "\nHello Darren! Please input the assignment number you'd like to test (1-4): ";
 	std::cin >> assignmentInput;
+	
+	system("cls");
 
 	std::cout << "\n";
 
@@ -24,6 +27,9 @@ void AssignmentSelector()
 	case 3:
 		Assignment3();
 		break;
+	case 4:
+		Assignment4();
+		break;
 	default:
 		std::cout << "I'm afraid I haven't done that assignment yet..." << std::endl;
 		break;
@@ -32,11 +38,12 @@ void AssignmentSelector()
 
 int main()
 {
-	UnorderedMapTest();
+	std::srand(std::time(nullptr));
 
 	//Assignment1();
 	//Assignment2();
 	//Assignment3();
+	Assignment4();
 
 	//Comment out to disable question selector
 	/*while (true)
