@@ -632,3 +632,47 @@ void UnorderedMapTest()
 	std::cout << "Chevy: " << Globals::HashFunction("Chevy") << "\n";
 	std::cout << "Dodge: " << Globals::HashFunction("Dodge") << "\n";
 }
+
+////////////////////////////////   WEEK-8   //////////////////////////////////
+
+void CustomMapTest()
+{
+	std::cout << "Custom Map Test: \n\n";
+
+	Map<int, int> myMap;
+
+	for (int i = 0; i < 10; ++i)
+	{
+		int value = rand() % 1000;
+		myMap.Insert(i, value);
+		std::cout << value << " ";
+	}
+
+	std::cout << "\n\nHas Key 3: " << myMap.Has(3) << "\n";
+	std::cout << "Has Key 30: " << myMap.Has(30) << "\n";
+
+	Vector<int> allKeys;
+	myMap.ObtainKeys(allKeys);
+
+	std::cout << "\nObtain All Keys: \n";
+
+	for (std::size_t i = 0; i < allKeys.Size(); ++i)
+	{
+		std::cout << allKeys[i] << " ";
+	}
+
+	std::cout << "\n\nValue with Key 7: " << myMap[7] << "\n";
+
+	myMap.Remove(6);
+	allKeys.Clear();
+	myMap.ObtainKeys(allKeys);
+
+	std::cout << "\nObtain All Keys without 6: \n";
+
+	for (std::size_t i = 0; i < allKeys.Size(); ++i)
+	{
+		std::cout << allKeys[i] << " ";
+	}
+
+	std::cout << "\n";
+}

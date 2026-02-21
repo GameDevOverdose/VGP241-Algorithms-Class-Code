@@ -127,6 +127,7 @@
     <ClCompile Include="Assignment-2.cpp" />
     <ClCompile Include="Assignment-3.cpp" />
     <ClCompile Include="Assignment-4.cpp" />
+    <ClCompile Include="Assignment-5.cpp" />
     <ClCompile Include="ClassCode.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Inventory.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="Assignment-2.h" />
     <ClInclude Include="Assignment-3.h" />
     <ClInclude Include="Assignment-4.h" />
+    <ClInclude Include="Assignment-5.h" />
     <ClInclude Include="ClassCode.h" />
     <ClInclude Include="ContainerIterator.h" />
     <ClInclude Include="Entity.h" />
@@ -152,6 +154,7 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="KDTree.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="Pickup.h" />
     <ClInclude Include="PickupManager.h" />
     <ClInclude Include="Player.h" />

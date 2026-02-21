@@ -12,6 +12,7 @@
 #include "Graph.h"
 #include "Globals.h"
 #include "UnorderedMap.h"
+#include "Map.h"
 
 #include "Vector2.h"
 
@@ -23,3 +24,4 @@ void GraphTest();
 void MapTest();
 void TileMapTest();
 void UnorderedMapTest();
+void CustomMapTest();
