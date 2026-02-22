@@ -152,8 +152,10 @@
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Inventory.h" />
+    <ClInclude Include="InventoryA5.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="KDTree.h" />
+    <ClInclude Include="KeyItem.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Pickup.h" />
     <ClInclude Include="PickupManager.h" />

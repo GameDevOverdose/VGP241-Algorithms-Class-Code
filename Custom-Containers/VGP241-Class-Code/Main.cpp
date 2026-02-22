@@ -4,6 +4,7 @@
 #include "Assignment-2.h"
 #include "Assignment-3.h"
 #include "Assignment-4.h"
+#include "Assignment-5.h"
 
 void AssignmentSelector()
 {
@@ -40,12 +41,11 @@ int main()
 {
 	//std::srand(std::time(nullptr));
 
-	CustomMapTest();
-
 	//Assignment1();
 	//Assignment2();
 	//Assignment3();
 	//Assignment4();
+	Assignment5();
 
 	//Comment out to disable question selector
 	/*while (true)
