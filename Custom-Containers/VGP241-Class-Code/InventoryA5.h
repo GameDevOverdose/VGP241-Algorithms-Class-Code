@@ -5,31 +5,22 @@
 #include "Map.h"
 #include "KeyItem.h"
 
-class Inventory
+class InventoryA5
 {
 public:
-	static Inventory* Get()
-	{
-		static Inventory sInstance;
-		return &sInstance;
-	}
+	static InventoryA5* Get();
 
-	void PickupKey(const std::string& keyName, int amount)
-	{
-		std::string keysName;
+	void PickupKey(const std::string& keyName, int amount);
 
-		if (!mKeys.Has(keyName))
-		{
-			KeyItem newKeyItem("");
+	void UseKey(const std::string& keyName, int amount);
 
-			//mKeys.Insert();
-		}
-	}
+	bool HasKey(const std::string& keyName) const;
 
-	void UseKey(const std::string& keyName, int amount)
-	{
+	KeyItem GetKey(const std::string& keyName) const;
 
-	}
+	void ObtainAllKeys(Vector <KeyItem>& outKeyItems) const;
+
+	void ClearInventory();
 
 private:
 	Map <std::string, KeyItem> mKeys;

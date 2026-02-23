@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Assignment-4">
       <UniqueIdentifier>{a9f2f742-e489-4e63-952e-85239bae4b0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Assignment-5">
+      <UniqueIdentifier>{8193fbfd-bf86-40ca-9b9b-e537f51aa8bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClassCode.cpp">
@@ -33,7 +36,7 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Assignment-1</Filter>
     </ClCompile>
-    <ClCompile Include="Inventory.cpp">
+    <ClCompile Include="InventoryA2.cpp">
       <Filter>Source Files\Assignment-2</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
@@ -69,6 +72,12 @@
     <ClCompile Include="Texture.cpp">
       <Filter>Source Files\Assignment-4</Filter>
     </ClCompile>
+    <ClCompile Include="Assignment-5.cpp">
+      <Filter>Source Files\Assignment-5</Filter>
+    </ClCompile>
+    <ClCompile Include="InventoryA5.cpp">
+      <Filter>Source Files\Assignment-5</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h">
@@ -95,7 +104,7 @@
     <ClInclude Include="Player.h">
       <Filter>Source Files\Assignment-1</Filter>
     </ClInclude>
-    <ClInclude Include="Inventory.h">
+    <ClInclude Include="InventoryA2.h">
       <Filter>Source Files\Assignment-2</Filter>
     </ClInclude>
     <ClInclude Include="Item.h">
@@ -139,6 +148,18 @@
     </ClInclude>
     <ClInclude Include="TextureManager.h">
       <Filter>Source Files\Assignment-4</Filter>
+    </ClInclude>
+    <ClInclude Include="Assignment-5.h">
+      <Filter>Source Files\Assignment-5</Filter>
+    </ClInclude>
+    <ClInclude Include="InventoryA5.h">
+      <Filter>Source Files\Assignment-5</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyItem.h">
+      <Filter>Source Files\Assignment-5</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,11 +3,11 @@
 #include "Vector.h"
 #include "Item.h"
 
-class Inventory
+class InventoryA2
 {
 public:
-	Inventory();
-	~Inventory();
+	InventoryA2();
+	~InventoryA2();
 
 	void Initialize(int itemCount = 0);
 	void AddItem(ItemType itemType);

@@ -2,17 +2,17 @@
 #include <iomanip>
 #include "PriorityQueue.h"
 
-#include "Inventory.h"
+#include "InventoryA2.h"
 
-Inventory::Inventory()
+InventoryA2::InventoryA2()
 {
 }
 
-Inventory::~Inventory()
+InventoryA2::~InventoryA2()
 {
 }
 
-void Inventory::Initialize(int itemCount)
+void InventoryA2::Initialize(int itemCount)
 {
 	mItems.Clear();
 
@@ -25,7 +25,7 @@ void Inventory::Initialize(int itemCount)
 	}
 }
 
-void Inventory::AddItem(ItemType itemType)
+void InventoryA2::AddItem(ItemType itemType)
 {
 	int indexToUpdate = -1;
 
@@ -50,7 +50,7 @@ void Inventory::AddItem(ItemType itemType)
 	}
 }
 
-void Inventory::DisplayInventory() const
+void InventoryA2::DisplayInventory() const
 {
 	PriorityQueue<Item> sortedItems;
 

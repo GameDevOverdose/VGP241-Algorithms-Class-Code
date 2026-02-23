@@ -60,6 +60,11 @@ public:
 		ObtainKeysFromNodes(mRootNode, outKeys);
 	}
 
+	void ObtainValues(Vector<ValueType>& outValues) const
+	{
+		ObtainValuesFromNodes(mRootNode, outValues);
+	}
+
 	bool Remove(const KeyType& key)
 	{
 		int count = mCount;
@@ -289,7 +294,7 @@ private:
 				return RotateRight(node);
 			}
 
-			if (balance < -1 && GetBalanceFactor(node->right) < 0)
+			if (balance < -1 && GetBalanceFactor(node->right) > 0)
 			{
 				node->right = RotateRight(node->right);
 				return RotateLeft(node);
@@ -306,6 +311,16 @@ private:
 			ObtainKeysFromNodes(node->left, outKeys);
 			outKeys.PushBack(node->kvp.key);
 			ObtainKeysFromNodes(node->right, outKeys);
+		}
+	}
+
+	void ObtainValuesFromNodes(Node* node, Vector<ValueType>& outValues) const
+	{
+		if (node != nullptr)
+		{
+			ObtainValuesFromNodes(node->left, outValues);
+			outValues.PushBack(node->kvp.value);
+			ObtainValuesFromNodes(node->right, outValues);
 		}
 	}
 

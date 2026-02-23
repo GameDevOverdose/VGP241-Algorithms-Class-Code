@@ -1,8 +1,6 @@
 #include "Assignment-4.h"
 
 #include <iostream>
-#include <thread>
-#include <chrono>
 
 #include "Vector.h"
 #include "Entity.h"

@@ -1,5 +1,5 @@
 #pragma once
 
-#include "Inventory.h"
+#include "InventoryA2.h"
 
 void Assignment2();

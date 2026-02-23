@@ -10,7 +10,7 @@ void AssignmentSelector()
 {
 	int assignmentInput = -1;
 
-	std::cout << "\nHello Darren! Please input the assignment number you'd like to test (1-4): ";
+	std::cout << "\nHello Darren! Please input the assignment number you'd like to test (1-5): ";
 	std::cin >> assignmentInput;
 	
 	system("cls");
@@ -30,6 +30,9 @@ void AssignmentSelector()
 		break;
 	case 4:
 		Assignment4();
+		break;
+	case 5:
+		Assignment5();
 		break;
 	default:
 		std::cout << "I'm afraid I haven't done that assignment yet..." << std::endl;

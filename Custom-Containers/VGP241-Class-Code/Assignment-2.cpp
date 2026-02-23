@@ -2,7 +2,7 @@
 
 void Assignment2()
 {
-	Inventory inventory;
+	InventoryA2 inventory;
 
 	inventory.Initialize(100);
 	inventory.DisplayInventory();
