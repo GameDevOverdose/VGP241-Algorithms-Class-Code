@@ -155,12 +155,12 @@ private:
 		return y;
 	}
 
-	Node* InsertNode(Node* node, KeyValuePair& kv)
+	Node* InsertNode(Node* node, const KeyValuePair& kv)
 	{
 		if (node == nullptr)
 		{
 			Node* node = new Node();
-			node->kvp = std::move(kv);
+			node->kvp = kv;
 			node->left = nullptr;
 			node->right = nullptr;
 			node->height = 0;

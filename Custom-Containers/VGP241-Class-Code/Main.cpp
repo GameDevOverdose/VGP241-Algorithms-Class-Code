@@ -42,17 +42,17 @@ void AssignmentSelector()
 
 int main()
 {
-	//std::srand(std::time(nullptr));
+	std::srand(std::time(nullptr));
 
 	//Assignment1();
 	//Assignment2();
 	//Assignment3();
 	//Assignment4();
-	Assignment5();
+	//Assignment5();
 
 	//Comment out to disable question selector
-	/*while (true)
+	while (true)
 	{
 		AssignmentSelector();
-	}*/
+	}
 }

@@ -46,6 +46,8 @@ void Assignment5()
 	InventoryA5* inventory = InventoryA5::Get();
 	Vector <std::string> keyNames;
 
+	inventory->ClearInventory();
+
 	PopulateKeyNames(keyNames);
 
 	for (int i = 0; i < 100; ++i)
