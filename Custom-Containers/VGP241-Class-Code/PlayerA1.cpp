@@ -1,16 +1,16 @@
-#include "Player.h"
+#include "PlayerA1.h"
 
-Player::Player()
+PlayerA1::PlayerA1()
 {
 }
 
-Player::~Player()
+PlayerA1::~PlayerA1()
 {
 }
 
-int Player::playerInitialized = 0;
+int PlayerA1::playerInitialized = 0;
 
-const void Player::InitializePlayer(std::string name)
+const void PlayerA1::InitializePlayer(std::string name)
 {
 	if(!name.empty())
 	{
@@ -29,17 +29,17 @@ const void Player::InitializePlayer(std::string name)
 	mStats[(int)Stats::Speed] = (rand() % 5) + 1;
 }
 
-const std::string Player::GetName() const
+const std::string PlayerA1::GetName() const
 {
 	return mName;
 }
 
-const int Player::GetStat(Stats stat) const
+const int PlayerA1::GetStat(Stats stat) const
 {
 	return mStats[(int)stat];
 }
 
-const void Player::DisplayPlayer() const
+const void PlayerA1::DisplayPlayer() const
 {
 	std::cout << "Player Name: " << mName << "\n";
 	std::cout << "\tHealth: " <<	mStats[(int)Stats::Health] << "\n";
@@ -49,12 +49,12 @@ const void Player::DisplayPlayer() const
 	std::cout << "\tSpeed: " <<		mStats[(int)Stats::Speed] << "\n\n";
 }
 
-const void Player::SetName(std::string name)
+const void PlayerA1::SetName(std::string name)
 {
 	mName = name;
 }
 
-const void Player::SetStat(Stats stat, int value)
+const void PlayerA1::SetStat(Stats stat, int value)
 {
 	value = (value < 0) ? 0:value;
 	mStats[(int)stat] = value;

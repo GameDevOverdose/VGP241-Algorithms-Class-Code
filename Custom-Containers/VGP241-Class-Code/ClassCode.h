@@ -25,3 +25,4 @@ void MapTest();
 void TileMapTest();
 void UnorderedMapTest();
 void CustomMapTest();
+void SortingTest();

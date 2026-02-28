@@ -5,12 +5,13 @@
 #include "Assignment-3.h"
 #include "Assignment-4.h"
 #include "Assignment-5.h"
+#include "Assignment-6.h"
 
 void AssignmentSelector()
 {
 	int assignmentInput = -1;
 
-	std::cout << "\nHello Darren! Please input the assignment number you'd like to test (1-5): ";
+	std::cout << "\nHello Darren! Please input the assignment number you'd like to test (1-6): ";
 	std::cin >> assignmentInput;
 	
 	system("cls");
@@ -34,6 +35,9 @@ void AssignmentSelector()
 	case 5:
 		Assignment5();
 		break;
+	case 6:
+		Assignment6();
+		break;
 	default:
 		std::cout << "I'm afraid I haven't done that assignment yet..." << std::endl;
 		break;
@@ -42,17 +46,20 @@ void AssignmentSelector()
 
 int main()
 {
-	std::srand(std::time(nullptr));
+	//std::srand(std::time(nullptr));
+
+	//SortingTest();
 
 	//Assignment1();
 	//Assignment2();
 	//Assignment3();
 	//Assignment4();
 	//Assignment5();
+	Assignment6();
 
 	//Comment out to disable question selector
-	while (true)
-	{
-		AssignmentSelector();
-	}
+	//while (true)
+	//{
+	//	AssignmentSelector();
+	//}
 }

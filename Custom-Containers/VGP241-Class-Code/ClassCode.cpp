@@ -160,7 +160,7 @@ void KDTreeTest()
 	std::cout << "Closest Target: " << foundTarget->name << "(" << foundTarget->position.x << ", " << foundTarget->position.y << ")\n";
 }
 
-////////////////////////////////   WEEK-5   //////////////////////////////////
+////////////////////////////////   WEEK-4   //////////////////////////////////
 
 void GraphTest()
 {
@@ -599,7 +599,7 @@ void TileMapTest()
 	}
 }
 
-////////////////////////////////   WEEK-7   //////////////////////////////////
+////////////////////////////////   WEEK-6   //////////////////////////////////
 
 void UnorderedMapTest()
 {
@@ -633,7 +633,7 @@ void UnorderedMapTest()
 	std::cout << "Dodge: " << Globals::HashFunction("Dodge") << "\n";
 }
 
-////////////////////////////////   WEEK-8   //////////////////////////////////
+////////////////////////////////   WEEK-7   //////////////////////////////////
 
 void CustomMapTest()
 {
@@ -672,6 +672,38 @@ void CustomMapTest()
 	for (std::size_t i = 0; i < allKeys.Size(); ++i)
 	{
 		std::cout << allKeys[i] << " ";
+	}
+
+	std::cout << "\n";
+}
+
+////////////////////////////////   WEEK-8   //////////////////////////////////
+
+void SortingTest()
+{
+	std::cout << "Custom Sorting\n\n";
+	Vector<int> myNumbers;
+	int maxNumbers = 20;
+
+	for (int i = 0; i < maxNumbers; ++i)
+	{
+		int value = 1 + (rand() % 1000);
+		myNumbers.PushBack(value);
+		std::cout << myNumbers[i] << " ";
+	}
+
+	std::cout << "\n";
+
+	//Globals::InsertionSort(myNumbers.Begin(), myNumbers.End());
+	//Globals::MergeSort(myNumbers.Begin(), myNumbers.End());
+	//Globals::QuickSort(myNumbers.Begin(), myNumbers.End());
+	//Globals::BucketSort(myNumbers.Begin(), myNumbers.End());
+	//Globals::HeapSort(myNumbers.Begin(), myNumbers.End());
+	Globals::IntroSort(myNumbers.Begin(), myNumbers.End());
+
+	for (int i = 0; i < myNumbers.Size(); ++i)
+	{
+		std::cout << myNumbers[i] << " ";
 	}
 
 	std::cout << "\n";

@@ -15,11 +15,11 @@ enum class Stats
 	Speed
 };
 
-class Player
+class PlayerA1
 {
 public:
-	Player();
-	~Player();
+	PlayerA1();
+	~PlayerA1();
 
 	const void InitializePlayer(std::string name = "");
 

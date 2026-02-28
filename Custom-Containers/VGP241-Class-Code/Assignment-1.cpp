@@ -35,9 +35,9 @@ void PopulateNames(Vector <std::string>* names)
     names->PushBack("Hector");
 }
 
-void AddPlayer(Vector <Player>* players, Vector <std::string>* names = nullptr)
+void AddPlayer(Vector <PlayerA1>* players, Vector <std::string>* names = nullptr)
 {
-    Player player;
+    PlayerA1 player;
 
     player.InitializePlayer();
 
@@ -50,7 +50,7 @@ void AddPlayer(Vector <Player>* players, Vector <std::string>* names = nullptr)
     players->PushBack(player);
 }
 
-float FightScoreCalculation(const Player& attacker, const Player& defender)
+float FightScoreCalculation(const PlayerA1& attacker, const PlayerA1& defender)
 {
     //PlayerA(Attack * Stamina) - PlayerB(Defense * Speed) / PlayerB(Health) (Old Calc)
 
@@ -64,7 +64,7 @@ float FightScoreCalculation(const Player& attacker, const Player& defender)
     return score;
 }
 
-void Fight(Vector <Player>* players)
+void Fight(Vector <PlayerA1>* players)
 {
     int playerOneIndex = rand() % players->Size();
     int playerTwoIndex = rand() % players->Size();
@@ -74,8 +74,8 @@ void Fight(Vector <Player>* players)
         playerTwoIndex = rand() % players->Size();
     }
 
-    Player playerA = players->operator[](playerOneIndex);
-    Player playerB = players->operator[](playerTwoIndex);
+    PlayerA1 playerA = players->operator[](playerOneIndex);
+    PlayerA1 playerB = players->operator[](playerTwoIndex);
 
     float playerAScore = FightScoreCalculation(playerA, playerB);
     float playerBScore = FightScoreCalculation(playerB, playerA);
@@ -105,7 +105,7 @@ void Fight(Vector <Player>* players)
 
 void Assignment1()
 {
-    Vector <Player> players;
+    Vector <PlayerA1> players;
     Vector <std::string> names;
 
     PopulateNames(&names);
