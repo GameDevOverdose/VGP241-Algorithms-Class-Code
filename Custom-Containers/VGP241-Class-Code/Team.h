@@ -20,7 +20,7 @@ public:
 	{
 		PlayerA6* player = &mPlayers[0];
 
-		if (!player->isAlive())
+		if (!player->isAlive() || player->GetStat(Stats::AttackCount) == 0 || player->GetStat(Stats::Speed) == 0)
 		{
 			return nullptr;
 		}
@@ -103,7 +103,7 @@ public:
 					bSpeed = b.GetStat(Stats::Speed);
 				}
 
-				return aSpeed < bSpeed;
+				return aSpeed > bSpeed;
 			});
 	}
 

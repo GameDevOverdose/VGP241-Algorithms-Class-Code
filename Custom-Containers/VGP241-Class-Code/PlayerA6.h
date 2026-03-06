@@ -81,12 +81,13 @@ public:
 	{
 		if (!isAlive())
 		{
-			std::cout << std::right << std::setw(24) << " Dead";
+			//std::cout << std::right << std::setw(24) << " Dead";
+			std::cout << std::right << std::setw(32) << " Dead";
 			return;
 		}
 
 		// Remove the -1 and uncomment the turn part to also print attack count
-		for (int i = 0; i < (int)Stats::Size - 1; ++i)
+		for (int i = 0; i < (int)Stats::Size; ++i)
 		{
 			switch (i)
 			{
@@ -99,9 +100,9 @@ public:
 			case 2:
 				std::cout << "Spd";
 				break;
-			//case 3:
-			//	std::cout << "Trn";
-			//	break;
+			case 3:
+				std::cout << "Trn";
+				break;
 			default:
 				break;
 			}
