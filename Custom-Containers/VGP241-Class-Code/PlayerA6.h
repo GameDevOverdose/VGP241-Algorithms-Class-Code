@@ -81,7 +81,7 @@ public:
 	{
 		if (!isAlive())
 		{
-			std::cout << std::right << std::setw(32) << " Dead";
+			std::cout << std::right << std::setw(24) << " Dead";
 			return;
 		}
 

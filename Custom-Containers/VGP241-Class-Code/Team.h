@@ -20,15 +20,7 @@ public:
 	{
 		PlayerA6* player = &mPlayers[0];
 
-		for (int i = 0; i < mPlayers.Size(); ++i)
-		{
-			if (mPlayers[i].GetStat(Stats::AttackCount) != 0 && mPlayers[i] >= *player)
-			{
-				player = &mPlayers[i];
-			}
-		}
-
-		if (player->GetStat(Stats::AttackCount) == 0)
+		if (!player->isAlive())
 		{
 			return nullptr;
 		}
@@ -98,17 +90,20 @@ public:
 	{
 		Globals::IntroSort(mPlayers.Begin(), mPlayers.End(), [](const PlayerA6& a, const PlayerA6& b)
 			{
-				//if (a.GetStat(Stats::AttackCount) == 0 || !a.isAlive())
-				//{
-				//	return true;
-				//}
-				//
-				//if (b.GetStat(Stats::AttackCount) == 0 || !b.isAlive())
-				//{
-				//	return false;
-				//}
+				int aSpeed = 0;
+				int bSpeed = 0;
 
-				return a.GetStat(Stats::Speed) < b.GetStat(Stats::Speed);
+				if (a.GetStat(Stats::AttackCount) > 0 && a.isAlive())
+				{
+					aSpeed = a.GetStat(Stats::Speed);
+				}
+
+				if (b.GetStat(Stats::AttackCount) > 0 && b.isAlive())
+				{
+					bSpeed = b.GetStat(Stats::Speed);
+				}
+
+				return aSpeed < bSpeed;
 			});
 	}
 

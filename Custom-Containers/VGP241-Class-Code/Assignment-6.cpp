@@ -112,7 +112,7 @@ void Assignment6()
 	PopulateNamesB(playerNames);
 	for (int i = 0; i < playerAmount; i++)
 	{
-		teamB.GetPlayers()[i].SetName(GetRandomName(playerNames));
+		teamB.GetPlayers()[i].SetName(GetRandomName(playerNames));- 
 	}
 
 	while (teamA.GetRemainingPlayers() != 0 && teamB.GetRemainingPlayers() != 0)
@@ -123,6 +123,13 @@ void Assignment6()
 		teamA.StartTurn();
 		teamB.StartTurn();
 
+		// while teams have attackers (anyone alive, anyone who hasnt attacked)
+		// attackerA = teamA.GetNextBattlingPlayer()
+		// attackerB = teamB.GetNextBattlingPlayer()
+		// if a speed > b then a attack b team
+		// if b speed > a then b attack a team
+		// loop
+		// if attackerA and attackerB speed/or AttackCount == 0 or both dead, turn is over, go to next turn
 		for (int i = 0; i < playerAmount; i++)
 		{
 			teamB.DamagePlayer(teamA.GetNextBattlingPlayer());
