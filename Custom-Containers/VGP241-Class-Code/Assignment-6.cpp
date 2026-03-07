@@ -10,16 +10,45 @@ void PrintStats(Team& teamA, Team& teamB, int playerAmount)
 
 	for (int i = 0; i < playerAmount; ++i)
 	{
-		std::cout << std::right << std::setw(8) << teamAPlayers[i].GetName() << "| ";
+		std::cout << std::right << std::setw(12) << teamAPlayers[i].GetName() << "| ";
+		//std::cout << std::right << std::setw(8) << teamAPlayers[i].GetName() << "| ";
 		teamA.PrintPlayerStats(i);
 
-		std::cout << std::right << std::setw(10) << teamBPlayers[i].GetName() << "| ";
+		std::cout << std::right << std::setw(14) << teamBPlayers[i].GetName() << "| ";
+		//std::cout << std::right << std::setw(10) << teamBPlayers[i].GetName() << "| ";
 		teamB.PrintPlayerStats(i);
 
 		std::cout << "\n";
 	}
 
 	std::cout << "---------------------------------------------------------------------------------------\n";
+}
+
+void PopulateNamesTest(Vector<std::string>& names)
+{
+	names.Clear();
+
+	names.PushBack("A");
+	names.PushBack("B");
+	names.PushBack("C");
+	names.PushBack("D");
+	names.PushBack("E");
+	names.PushBack("F");
+	names.PushBack("G");
+	names.PushBack("H");
+	names.PushBack("I");
+	names.PushBack("J");
+
+	names.PushBack("1");
+	names.PushBack("2");
+	names.PushBack("3");
+	names.PushBack("4");
+	names.PushBack("5");
+	names.PushBack("6");
+	names.PushBack("7");
+	names.PushBack("8");
+	names.PushBack("9");
+	names.PushBack("10");
 }
 
 void PopulateNames(Vector<std::string>& names)
@@ -46,39 +75,7 @@ void PopulateNames(Vector<std::string>& names)
 	names.PushBack("Wolf");
 }
 
-void PopulateNamesA(Vector<std::string>& names)
-{
-	names.Clear();
-
-	names.PushBack("A");
-	names.PushBack("B");
-	names.PushBack("C");
-	names.PushBack("D");
-	names.PushBack("E");
-	names.PushBack("F");
-	names.PushBack("G");
-	names.PushBack("H");
-	names.PushBack("I");
-	names.PushBack("J");
-}
-
-void PopulateNamesB(Vector<std::string>& names)
-{
-	names.Clear();
-
-	names.PushBack("1");
-	names.PushBack("2");
-	names.PushBack("3");
-	names.PushBack("4");
-	names.PushBack("5");
-	names.PushBack("6");
-	names.PushBack("7");
-	names.PushBack("8");
-	names.PushBack("9");
-	names.PushBack("10");
-}
-
-std::string GetRandomName(Vector<std::string>& names)
+std::string GetName(Vector<std::string>& names)
 {
 	//int randIndex = rand() % names.Size();
 	std::string name = names[names.Size() - 1];
@@ -87,13 +84,6 @@ std::string GetRandomName(Vector<std::string>& names)
 	return name;
 }
 
-// while teams have attackers (anyone alive, anyone who hasn't attacked)
-// attackerA = teamA.GetNextBattlingPlayer()
-// attackerB = teamB.GetNextBattlingPlayer()
-// if a speed > b then a attack b team
-// if b speed > a then b attack a team
-// loop
-// if attackerA and attackerB speed/or AttackCount == 0 or both dead, turn is over, go to next turn
 void Assignment6()
 {
 	Vector<std::string> playerNames;
@@ -108,17 +98,23 @@ void Assignment6()
 	teamA.Initialize(playerAmount);
 	teamB.Initialize(playerAmount);
 
-	PopulateNamesA(playerNames);
+	PopulateNames(playerNames);
+	//PopulateNamesTest(playerNames);
+
 	for (int i = 0; i < playerAmount; i++)
 	{
-		teamA.GetPlayers()[i].SetName(GetRandomName(playerNames));
+		teamA.GetPlayers()[i].SetName(GetName(playerNames));
+		teamB.GetPlayers()[i].SetName(GetName(playerNames));
 	}
 
-	PopulateNamesB(playerNames);
-	for (int i = 0; i < playerAmount; i++)
-	{
-		teamB.GetPlayers()[i].SetName(GetRandomName(playerNames));
-	}
+	// can use test name function for easier checking
+	//for (int i = 0; i < playerAmount; i++)
+	//{
+	//	teamB.GetPlayers()[i].SetName(GetName(playerNames));
+	//}
+
+	PlayerA6* attackerA = teamA.GetNextBattlingPlayer();
+	PlayerA6* attackerB = teamB.GetNextBattlingPlayer();
 
 	while (teamA.GetRemainingPlayers() != 0 && teamB.GetRemainingPlayers() != 0)
 	{
@@ -128,13 +124,19 @@ void Assignment6()
 		// if you want to print before the turn
 		//PrintStats(teamA, teamB, playerAmount);
 
-		PlayerA6* attackerA = teamA.GetNextBattlingPlayer();
-		PlayerA6* attackerB = teamB.GetNextBattlingPlayer();
+		attackerA = teamA.GetNextBattlingPlayer();
+		attackerB = teamB.GetNextBattlingPlayer();
 
 		while (attackerA != nullptr || attackerB != nullptr)
 		{
 			attackerA = teamA.GetNextBattlingPlayer();
 			attackerB = teamB.GetNextBattlingPlayer();
+
+			if (attackerA == nullptr && attackerB == nullptr)
+			{
+				// end turn if no attackers left to battle
+				break;
+			}
 
 			if (attackerB != nullptr && attackerA != nullptr)
 			{
@@ -175,11 +177,6 @@ void Assignment6()
 			{
 				teamA.DamagePlayer(attackerB);
 			}
-			else
-			{
-				// end turn if no battlers left to battle
-				break;
-			}
 
 			if (teamA.GetRemainingPlayers() == 0 || teamB.GetRemainingPlayers() == 0)
 			{
@@ -191,6 +188,12 @@ void Assignment6()
 			teamB.OrderPlayers();
 		}
 
+		if (teamA.GetRemainingPlayers() == 0 || teamB.GetRemainingPlayers() == 0)
+		{
+			// end turn if either of the team is wiped out
+			break;
+		}
+
 		// if you want to print after the turn
 		std::cout << "\n\n";
 		PrintStats(teamA, teamB, playerAmount);
@@ -200,6 +203,10 @@ void Assignment6()
 		std::cin >> input;
 		system("cls");
 	}
+
+	teamA.EndMatch();
+	teamB.EndMatch();
+	system("cls");
 
 	if (teamA.GetRemainingPlayers() != 0)
 	{

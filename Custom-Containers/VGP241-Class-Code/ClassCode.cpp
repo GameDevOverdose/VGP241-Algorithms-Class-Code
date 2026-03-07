@@ -708,3 +708,81 @@ void SortingTest()
 
 	std::cout << "\n";
 }
+
+////////////////////////////////   WEEK-9   //////////////////////////////////
+
+void MSTGraphTest()
+{
+	std::cout << "MST Graph:\n\n";
+
+	// a, b, c, d, e
+	Vector<std::string> nodes;
+	nodes.PushBack("A");
+	nodes.PushBack("B");
+	nodes.PushBack("C");
+	nodes.PushBack("D");
+	nodes.PushBack("E");
+
+	// using prims algorithm
+	MSTGraph<std::string, int> mstGraphPA;
+
+	// add all the nodes to graph
+	for (std::size_t i = 0; i < nodes.Size(); ++i)
+	{
+		mstGraphPA.AddItem(&nodes[i]);
+	}
+
+	// link all the nodes
+	mstGraphPA.AddEdge(0, 1, 9); // A-B 9
+	mstGraphPA.AddEdge(0, 2, 5); // A-C 5
+	mstGraphPA.AddEdge(0, 3, 2); // A-D 2
+	mstGraphPA.AddEdge(1, 3, 6); // B-D 6
+	mstGraphPA.AddEdge(1, 4, 5); // B-E 5
+	mstGraphPA.AddEdge(2, 3, 4); // C-D 4
+	mstGraphPA.AddEdge(2, 4, 5); // C-E 5
+	mstGraphPA.AddEdge(3, 4, 4); // D-E 4
+
+	// generate MST
+	mstGraphPA.GenerateMST(0);
+
+	std::cout << "MST:\n";
+	int totalWeight = 0;
+
+	const Vector<MSTGraph<std::string, int>::Edge>& mstEdges = mstGraphPA.GetMST();
+
+	for (std::size_t i = 0; i < mstEdges.Size(); ++i)
+	{
+		std::cout << nodes[mstEdges[i].fromIndex] << "-" << nodes[mstEdges[i].toIndex] << " ";
+		totalWeight += mstEdges[i].weight;
+	}
+
+	std::cout << "\n";
+	std::cout << "Total Weight: " << totalWeight << "\n";
+
+	std::cout << "\nKruskal's MST:\n\n";
+	totalWeight = 0;
+
+	MSTGraphK<int> mstGraphKA;
+
+	mstGraphKA.AddEdge(0, 1, 9); // A-B 9
+	mstGraphKA.AddEdge(0, 2, 5); // A-C 5
+	mstGraphKA.AddEdge(0, 3, 2); // A-D 2
+	mstGraphKA.AddEdge(1, 3, 6); // B-D 6
+	mstGraphKA.AddEdge(1, 4, 5); // B-E 5
+	mstGraphKA.AddEdge(2, 3, 4); // C-D 4
+	mstGraphKA.AddEdge(2, 4, 5); // C-E 5
+	mstGraphKA.AddEdge(3, 4, 4); // D-E 4
+	mstGraphKA.GenerateMST();
+
+	const Vector<MSTGraphK<int>::Edge>& mstEdgesK = mstGraphKA.GetMST();
+
+	for (std::size_t i = 0; i < mstEdgesK.Size(); ++i)
+	{
+		std::cout << nodes[mstEdgesK[i].fromNode] << "-" << nodes[mstEdgesK[i].toNode] << " ";
+		totalWeight += mstEdgesK[i].weight;
+	}
+
+	std::cout << "\n";
+	std::cout << "Total Weight: " << totalWeight << "\n";
+	std::cout << "\n";
+}

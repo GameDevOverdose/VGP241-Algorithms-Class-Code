@@ -138,6 +138,8 @@
     <ClCompile Include="Pickup.cpp" />
     <ClCompile Include="PickupManager.cpp" />
     <ClCompile Include="PlayerA1.cpp" />
+    <ClCompile Include="PlayerA6.cpp" />
+    <ClCompile Include="Team.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
@@ -160,6 +162,8 @@
     <ClInclude Include="KDTree.h" />
     <ClInclude Include="KeyItem.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MSTGraph.h" />
+    <ClInclude Include="MSTGraphK.h" />
     <ClInclude Include="Pickup.h" />
     <ClInclude Include="PickupManager.h" />
     <ClInclude Include="PlayerA1.h" />

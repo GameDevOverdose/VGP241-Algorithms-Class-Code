@@ -46,20 +46,20 @@ void AssignmentSelector()
 
 int main()
 {
-	//std::srand(std::time(nullptr));
+	std::srand(std::time(nullptr));
 
-	//SortingTest();
+	//MSTGraphTest();
 
 	//Assignment1();
 	//Assignment2();
 	//Assignment3();
 	//Assignment4();
 	//Assignment5();
-	Assignment6();
+	//Assignment6();
 
 	//Comment out to disable question selector
-	//while (true)
-	//{
-	//	AssignmentSelector();
-	//}
+	while (true)
+	{
+		AssignmentSelector();
+	}
 }

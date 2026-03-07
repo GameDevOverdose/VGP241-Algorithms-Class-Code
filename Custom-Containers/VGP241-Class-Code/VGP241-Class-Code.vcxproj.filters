@@ -28,13 +28,13 @@
     <Filter Include="Source Files\Assignment-5">
       <UniqueIdentifier>{8193fbfd-bf86-40ca-9b9b-e537f51aa8bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Assignment-6">
+      <UniqueIdentifier>{74a2dc97-8d7d-4424-bac7-2089b5e5c2f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClassCode.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Assignment-1</Filter>
     </ClCompile>
     <ClCompile Include="InventoryA2.cpp">
       <Filter>Source Files\Assignment-2</Filter>
@@ -78,6 +78,18 @@
     <ClCompile Include="InventoryA5.cpp">
       <Filter>Source Files\Assignment-5</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerA6.cpp">
+      <Filter>Source Files\Assignment-6</Filter>
+    </ClCompile>
+    <ClCompile Include="Team.cpp">
+      <Filter>Source Files\Assignment-6</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment-6.cpp">
+      <Filter>Source Files\Assignment-6</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerA1.cpp">
+      <Filter>Source Files\Assignment-1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h">
@@ -100,9 +112,6 @@
     </ClInclude>
     <ClInclude Include="ClassCode.h">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Source Files\Assignment-1</Filter>
     </ClInclude>
     <ClInclude Include="InventoryA2.h">
       <Filter>Source Files\Assignment-2</Filter>
@@ -160,6 +169,24 @@
     </ClInclude>
     <ClInclude Include="Map.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MSTGraph.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MSTGraphK.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Assignment-6.h">
+      <Filter>Source Files\Assignment-6</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerA6.h">
+      <Filter>Source Files\Assignment-6</Filter>
+    </ClInclude>
+    <ClInclude Include="Team.h">
+      <Filter>Source Files\Assignment-6</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerA1.h">
+      <Filter>Source Files\Assignment-1</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

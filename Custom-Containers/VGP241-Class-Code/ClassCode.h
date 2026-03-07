@@ -13,6 +13,8 @@
 #include "Globals.h"
 #include "UnorderedMap.h"
 #include "Map.h"
+#include "MSTGraph.h"
+#include "MSTGraphK.h"
 
 #include "Vector2.h"
 
@@ -26,3 +28,4 @@ void TileMapTest();
 void UnorderedMapTest();
 void CustomMapTest();
 void SortingTest();
+void MSTGraphTest();
