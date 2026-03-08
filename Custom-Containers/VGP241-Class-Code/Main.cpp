@@ -6,12 +6,13 @@
 #include "Assignment-4.h"
 #include "Assignment-5.h"
 #include "Assignment-6.h"
+#include "Assignment-7.h"
 
 void AssignmentSelector()
 {
 	int assignmentInput = -1;
 
-	std::cout << "\nHello Darren! Please input the assignment number you'd like to test (1-6): ";
+	std::cout << "\nHello Darren! Please input the assignment number you'd like to test (1-7): ";
 	std::cin >> assignmentInput;
 	
 	system("cls");
@@ -38,6 +39,9 @@ void AssignmentSelector()
 	case 6:
 		Assignment6();
 		break;
+	case 7:
+		Assignment7();
+		break;
 	default:
 		std::cout << "I'm afraid I haven't done that assignment yet..." << std::endl;
 		break;
@@ -56,6 +60,7 @@ int main()
 	//Assignment4();
 	//Assignment5();
 	//Assignment6();
+	//Assignment7();
 
 	//Comment out to disable question selector
 	while (true)

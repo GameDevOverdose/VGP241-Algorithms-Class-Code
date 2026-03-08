@@ -129,8 +129,11 @@
     <ClCompile Include="Assignment-4.cpp" />
     <ClCompile Include="Assignment-5.cpp" />
     <ClCompile Include="Assignment-6.cpp" />
+    <ClCompile Include="Assignment-7.cpp" />
+    <ClCompile Include="City.cpp" />
     <ClCompile Include="ClassCode.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="House.cpp" />
     <ClCompile Include="InventoryA2.cpp" />
     <ClCompile Include="InventoryA5.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -151,11 +154,14 @@
     <ClInclude Include="Assignment-4.h" />
     <ClInclude Include="Assignment-5.h" />
     <ClInclude Include="Assignment-6.h" />
+    <ClInclude Include="Assignment-7.h" />
     <ClInclude Include="ClassCode.h" />
     <ClInclude Include="ContainerIterator.h" />
+    <ClInclude Include="City.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="House.h" />
     <ClInclude Include="InventoryA2.h" />
     <ClInclude Include="InventoryA5.h" />
     <ClInclude Include="Item.h" />

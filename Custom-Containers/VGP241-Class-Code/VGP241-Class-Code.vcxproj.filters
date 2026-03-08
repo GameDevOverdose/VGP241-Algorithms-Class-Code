@@ -31,6 +31,9 @@
     <Filter Include="Source Files\Assignment-6">
       <UniqueIdentifier>{74a2dc97-8d7d-4424-bac7-2089b5e5c2f5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Assignment-7">
+      <UniqueIdentifier>{bd8c2b51-edb7-4a22-b04c-be156deb34f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClassCode.cpp">
@@ -89,6 +92,15 @@
     </ClCompile>
     <ClCompile Include="PlayerA1.cpp">
       <Filter>Source Files\Assignment-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment-7.cpp">
+      <Filter>Source Files\Assignment-7</Filter>
+    </ClCompile>
+    <ClCompile Include="City.cpp">
+      <Filter>Source Files\Assignment-7</Filter>
+    </ClCompile>
+    <ClCompile Include="House.cpp">
+      <Filter>Source Files\Assignment-7</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +199,15 @@
     </ClInclude>
     <ClInclude Include="PlayerA1.h">
       <Filter>Source Files\Assignment-1</Filter>
+    </ClInclude>
+    <ClInclude Include="Assignment-7.h">
+      <Filter>Source Files\Assignment-7</Filter>
+    </ClInclude>
+    <ClInclude Include="House.h">
+      <Filter>Source Files\Assignment-7</Filter>
+    </ClInclude>
+    <ClInclude Include="City.h">
+      <Filter>Source Files\Assignment-7</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
