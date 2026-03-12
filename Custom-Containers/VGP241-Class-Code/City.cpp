@@ -19,17 +19,14 @@ void City::AddHouse(const std::string& name, const Vector2& position)
 
 void City::ConnectAllHouses()
 {
-	for (std::size_t i = 0; i < mHouses.Size(); ++i)
+	for (std::size_t i = 0; i < mHouses.Size() - 1; ++i)
 	{
-		for (std::size_t j = 0; j < mHouses.Size(); ++j)
+		for (std::size_t j = i + 1; j < mHouses.Size(); ++j)
 		{
-			if (i != j)
-			{
-				float distance = mHouses[i].GetPosition().Distance(mHouses[j].GetPosition());
+			float distance = mHouses[i].GetPosition().Distance(mHouses[j].GetPosition());
 
-				mHousesGraph.AddEdge(i, j, distance);
-				mHouseEdgesGraph.AddEdge(i, j, distance);
-			}
+			mHousesGraph.AddEdge(i, j, distance);
+			mHouseEdgesGraph.AddEdge(i, j, distance);
 		}
 	}
 
