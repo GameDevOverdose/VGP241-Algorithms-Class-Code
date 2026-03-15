@@ -130,9 +130,12 @@
     <ClCompile Include="Assignment-5.cpp" />
     <ClCompile Include="Assignment-6.cpp" />
     <ClCompile Include="Assignment-7.cpp" />
-    <ClCompile Include="City.cpp" />
+    <ClCompile Include="Assignment8.cpp" />
+    <ClCompile Include="CityA7.cpp" />
+    <ClCompile Include="CityA8.cpp" />
     <ClCompile Include="ClassCode.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="GPS.cpp" />
     <ClCompile Include="House.cpp" />
     <ClCompile Include="InventoryA2.cpp" />
     <ClCompile Include="InventoryA5.cpp" />
@@ -155,11 +158,14 @@
     <ClInclude Include="Assignment-5.h" />
     <ClInclude Include="Assignment-6.h" />
     <ClInclude Include="Assignment-7.h" />
+    <ClInclude Include="Assignment-8.h" />
+    <ClInclude Include="CityA8.h" />
     <ClInclude Include="ClassCode.h" />
     <ClInclude Include="ContainerIterator.h" />
-    <ClInclude Include="City.h" />
+    <ClInclude Include="CityA7.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="GPS.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="House.h" />
     <ClInclude Include="InventoryA2.h" />
@@ -182,6 +188,7 @@
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="Vector3.h" />
+    <ClInclude Include="WeightedGraph.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

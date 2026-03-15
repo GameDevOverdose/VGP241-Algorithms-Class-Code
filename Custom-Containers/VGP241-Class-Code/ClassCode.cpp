@@ -786,3 +786,56 @@ void MSTGraphTest()
 	std::cout << "Total Weight: " << totalWeight << "\n";
 	std::cout << "\n";
 }
+
+////////////////////////////////   WEEK-10   //////////////////////////////////
+
+void WeightedGraphTest()
+{
+	std::cout << "Weighted Graph:\n\n";
+
+	// a, b, c, d, e
+	Vector<std::string> nodes;
+	nodes.PushBack("A");
+	nodes.PushBack("B");
+	nodes.PushBack("C");
+	nodes.PushBack("D");
+	nodes.PushBack("E");
+
+	WeightedGraph<std::string, int> nodeGraph;
+
+	for (std::size_t i = 0; i < nodes.Size(); ++i)
+	{
+		nodeGraph.AddItem(&nodes[i]);
+	}
+
+	nodeGraph.AddEdge(0, 1, 9); // A-B 9
+	nodeGraph.AddEdge(0, 2, 5); // A-C 5
+	nodeGraph.AddEdge(0, 3, 2); // A-D 2
+	nodeGraph.AddEdge(1, 3, 6); // B-D 6
+	nodeGraph.AddEdge(1, 4, 5); // B-E 5
+	nodeGraph.AddEdge(2, 3, 4); // C-D 4
+	nodeGraph.AddEdge(2, 4, 5); // C-E 5
+	nodeGraph.AddEdge(3, 4, 4); // D-E 4
+
+	int startNode = 0;
+	int endNode = 4;
+
+	std::cout << "Path from: " << nodes[startNode] << " to " << nodes[endNode] << "\n";
+
+	Vector<const std::string*> pathOutput;
+	int distance = nodeGraph.GetPath(startNode, endNode, pathOutput);
+
+	for (std::size_t i = 0; i < pathOutput.Size(); ++i)
+	{
+		std::cout << (*pathOutput[i]);
+
+		if (i < pathOutput.Size() - 1)
+		{
+			std::cout << "-";
+		}
+	}
+
+	std::cout << "\nTotal Distance: " << distance;
+
+	std::cout << "\n\n";
+}

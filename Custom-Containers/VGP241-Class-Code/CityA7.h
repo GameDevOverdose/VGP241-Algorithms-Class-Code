@@ -7,7 +7,7 @@
 #include "MSTGraph.h"
 #include "MSTGraphK.h"
 
-class City
+class CityA7
 {
 public:
 	void AddHouse(const std::string& name, const Vector2& position);

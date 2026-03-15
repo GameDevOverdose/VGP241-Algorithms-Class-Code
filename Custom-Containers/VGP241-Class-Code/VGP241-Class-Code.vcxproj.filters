@@ -34,6 +34,9 @@
     <Filter Include="Source Files\Assignment-7">
       <UniqueIdentifier>{bd8c2b51-edb7-4a22-b04c-be156deb34f2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Assignment-8">
+      <UniqueIdentifier>{1d60ec0e-c276-4383-a04d-1dd04427ffd3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClassCode.cpp">
@@ -96,11 +99,20 @@
     <ClCompile Include="Assignment-7.cpp">
       <Filter>Source Files\Assignment-7</Filter>
     </ClCompile>
-    <ClCompile Include="City.cpp">
+    <ClCompile Include="CityA7.cpp">
       <Filter>Source Files\Assignment-7</Filter>
     </ClCompile>
     <ClCompile Include="House.cpp">
       <Filter>Source Files\Assignment-7</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment8.cpp">
+      <Filter>Source Files\Assignment-8</Filter>
+    </ClCompile>
+    <ClCompile Include="GPS.cpp">
+      <Filter>Source Files\Assignment-8</Filter>
+    </ClCompile>
+    <ClCompile Include="CityA8.cpp">
+      <Filter>Source Files\Assignment-8</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,8 +218,20 @@
     <ClInclude Include="House.h">
       <Filter>Source Files\Assignment-7</Filter>
     </ClInclude>
-    <ClInclude Include="City.h">
+    <ClInclude Include="CityA7.h">
       <Filter>Source Files\Assignment-7</Filter>
+    </ClInclude>
+    <ClInclude Include="WeightedGraph.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Assignment-8.h">
+      <Filter>Source Files\Assignment-8</Filter>
+    </ClInclude>
+    <ClInclude Include="CityA8.h">
+      <Filter>Source Files\Assignment-8</Filter>
+    </ClInclude>
+    <ClInclude Include="GPS.h">
+      <Filter>Source Files\Assignment-8</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

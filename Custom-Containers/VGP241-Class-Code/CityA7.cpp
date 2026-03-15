@@ -1,13 +1,10 @@
-#include "City.h"
+#include "CityA7.h"
 
-void City::AddHouse(const std::string& name, const Vector2& position)
+void CityA7::AddHouse(const std::string& name, const Vector2& position)
 {
 	for (int i = 0; i < mHouses.Size(); ++i)
 	{
-		// duplicating because can't make a version of == operator where the lhs is const
-		Vector2 housePosition = mHouses[i].GetPosition();
-
-		if (mHouses[i].GetName() == name && housePosition == position)
+		if (mHouses[i].GetName() == name && mHouses[i].GetPosition() == position)
 		{
 			return;
 		}
@@ -17,7 +14,7 @@ void City::AddHouse(const std::string& name, const Vector2& position)
 	mHousesGraph.AddItem(&mHouses[mHouses.Size() - 1]);
 }
 
-void City::ConnectAllHouses()
+void CityA7::ConnectAllHouses()
 {
 	for (std::size_t i = 0; i < mHouses.Size() - 1; ++i)
 	{
@@ -34,7 +31,7 @@ void City::ConnectAllHouses()
 	mHouseEdgesGraph.GenerateMST();
 }
 
-float City::GetTotalRoadDistancePrim()
+float CityA7::GetTotalRoadDistancePrim()
 {
 	const Vector<MSTGraph<House, float>::Edge>& mstEdges = mHousesGraph.GetMST();
 	float totalWeight = 0;
@@ -50,7 +47,7 @@ float City::GetTotalRoadDistancePrim()
 	return totalWeight;
 }
 
-float City::GetTotalRoadDistanceKruskal()
+float CityA7::GetTotalRoadDistanceKruskal()
 {
 	const Vector<MSTGraphK<float>::Edge> mstEdgesK = mHouseEdgesGraph.GetMST();
 	float totalWeight = 0;

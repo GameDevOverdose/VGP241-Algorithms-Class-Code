@@ -7,12 +7,13 @@
 #include "Assignment-5.h"
 #include "Assignment-6.h"
 #include "Assignment-7.h"
+#include "Assignment-8.h"
 
 void AssignmentSelector()
 {
 	int assignmentInput = -1;
 
-	std::cout << "\nHello Darren! Please input the assignment number you'd like to test (1-7): ";
+	std::cout << "\nHello Darren! Please input the assignment number you'd like to test (1-8): ";
 	std::cin >> assignmentInput;
 	
 	system("cls");
@@ -42,6 +43,9 @@ void AssignmentSelector()
 	case 7:
 		Assignment7();
 		break;
+	case 8:
+		Assignment8();
+		break;
 	default:
 		std::cout << "I'm afraid I haven't done that assignment yet..." << std::endl;
 		break;
@@ -52,7 +56,7 @@ int main()
 {
 	std::srand(std::time(nullptr));
 
-	//MSTGraphTest();
+	//WeightedGraphTest();
 
 	//Assignment1();
 	//Assignment2();
@@ -61,10 +65,11 @@ int main()
 	//Assignment5();
 	//Assignment6();
 	//Assignment7();
+	Assignment8();
 
 	//Comment out to disable question selector
-	while (true)
-	{
-		AssignmentSelector();
-	}
+	//while (true)
+	//{
+	//	AssignmentSelector();
+	//}
 }

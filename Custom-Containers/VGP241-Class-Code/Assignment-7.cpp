@@ -1,7 +1,7 @@
 #include "Assignment-7.h"
-#include "City.h"
+#include "CityA7.h"
 
-void PopulateCity(City& city)
+void PopulateCity(CityA7& city)
 {
 	city.AddHouse("E", {30, 120});
 	city.AddHouse("F", {100, 110});
@@ -20,7 +20,7 @@ void PopulateCity(City& city)
 
 void Assignment7()
 {
-	City city;
+	CityA7 city;
 
 	PopulateCity(city);
 

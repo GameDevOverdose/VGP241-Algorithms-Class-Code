@@ -15,6 +15,7 @@
 #include "Map.h"
 #include "MSTGraph.h"
 #include "MSTGraphK.h"
+#include "WeightedGraph.h"
 
 #include "Vector2.h"
 
@@ -29,3 +30,4 @@ void UnorderedMapTest();
 void CustomMapTest();
 void SortingTest();
 void MSTGraphTest();
+void WeightedGraphTest();

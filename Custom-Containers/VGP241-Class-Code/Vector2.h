@@ -29,7 +29,7 @@ struct Vector2
     Vector2& operator*=(float s) { x *= s; y *= s; return *this; }
     Vector2& operator/=(float s) { x /= s; y /= s; return *this; }
 
-    bool operator==(const Vector2& rhs) { return (x == rhs.x && y == rhs.y); }
+    bool operator==(const Vector2& rhs) const { return (x == rhs.x && y == rhs.y); }
 
     float MagnitudeSquared() const { return x * x + y * y; }
     float Magnitude() const { return sqrtf(MagnitudeSquared()); }
