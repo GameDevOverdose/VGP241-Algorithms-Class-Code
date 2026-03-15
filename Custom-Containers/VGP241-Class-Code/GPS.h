@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CityA8.h"
+#include "UnorderedMap.h"
 #include "WeightedGraph.h"
 
 class GPS
@@ -14,5 +15,6 @@ public:
 
 private:
 	Vector<CityA8> mCities;
+	UnorderedMap<std::string, int> mCityMap;
 	WeightedGraph<CityA8, float> mCityGraph;
 };

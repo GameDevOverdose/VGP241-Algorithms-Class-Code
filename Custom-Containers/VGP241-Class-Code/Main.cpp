@@ -56,8 +56,6 @@ int main()
 {
 	std::srand(std::time(nullptr));
 
-	//WeightedGraphTest();
-
 	//Assignment1();
 	//Assignment2();
 	//Assignment3();
@@ -65,11 +63,11 @@ int main()
 	//Assignment5();
 	//Assignment6();
 	//Assignment7();
-	Assignment8();
+	//Assignment8();
 
 	//Comment out to disable question selector
-	//while (true)
-	//{
-	//	AssignmentSelector();
-	//}
+	while (true)
+	{
+		AssignmentSelector();
+	}
 }

@@ -111,14 +111,14 @@ void Assignment8()
 
 	float speed = 80; // Km/hr
 
-	CityA8 cityA1 = Vancouver;
-	CityA8 cityA2 = Cranbrook;
+	CityA8& cityA1 = Vancouver;
+	CityA8& cityA2 = Cranbrook;
 
-	CityA8 cityB1 = PrinceRupert;
-	CityA8 cityB2 = Kelowna;
+	CityA8& cityB1 = PrinceRupert;
+	CityA8& cityB2 = Kelowna;
 
-	CityA8 cityC1 = FortNelson;
-	CityA8 cityC2 = Creston;
+	CityA8& cityC1 = FortNelson;
+	CityA8& cityC2 = Creston;
 
 	float distA = PrintPath(gpsSystem, cityA1, cityA2);
 	std::cout << "\n\n";
@@ -128,18 +128,8 @@ void Assignment8()
 
 	std::cout << "\n\n";
 
-	int durationAHr;
-	int durationAMin;
-
-	int durationBHr;
-	int durationBMin;
-
-	int durationCHr;
-	int durationCMin;
-
-	FloatToTime(distA / speed, durationAHr, durationAMin);
-	FloatToTime(distB / speed, durationBHr, durationBMin);
-	FloatToTime(distC / speed, durationCHr, durationCMin);
+	int durationHr;
+	int durationMin;
 
 	//std::cout << "Distance to Travel:\n";
 	//std::cout << "From " << cityA1.GetName() << " to " << cityA2.GetName() << ": " << distA << " km\n";
@@ -147,9 +137,15 @@ void Assignment8()
 	//std::cout << "From " << cityC1.GetName() << " to " << cityC2.GetName() << ": " << distC << " km\n";
 
 	std::cout << "Duration to Travel:\n";
-	std::cout << "From " << cityA1.GetName() << " to " << cityA2.GetName() << ": " << durationAHr << " hr " << durationAMin << " min\n";
-	std::cout << "From " << cityB1.GetName() << " to " << cityB2.GetName() << ": " << durationBHr << " hr " << durationBMin << " min\n";
-	std::cout << "From " << cityC1.GetName() << " to " << cityC2.GetName() << ": " << durationCHr << " hr " << durationCMin << " min\n";
 
-	std::cout << "\n\n";
+	FloatToTime(distA / speed, durationHr, durationMin);
+	std::cout << "From " << cityA1.GetName() << " to " << cityA2.GetName() << ": " << durationHr << " hr " << durationMin << " min\n";
+
+	FloatToTime(distB / speed, durationHr, durationMin);
+	std::cout << "From " << cityB1.GetName() << " to " << cityB2.GetName() << ": " << durationHr << " hr " << durationMin << " min\n";
+
+	FloatToTime(distC / speed, durationHr, durationMin);
+	std::cout << "From " << cityC1.GetName() << " to " << cityC2.GetName() << ": " << durationHr << " hr " << durationMin << " min\n";
+
+	std::cout << "\n";
 }

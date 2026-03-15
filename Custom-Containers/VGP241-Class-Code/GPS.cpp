@@ -9,31 +9,24 @@ void GPS::AddCity(const std::string& name, const Vector2& position)
 {
 	for (int i = 0; i < mCities.Size(); ++i)
 	{
+		// if string was the only comparison for duplicacy then could just use mCityMap.Has(name)
 		if (mCities[i].GetName() == name && mCities[i].GetPosition() == position)
 		{
-			// city is a duplicate
 			return;
 		}
 	}
 
+	mCityMap[name] = mCities.Size();
 
-	// UnorderdMap<std::string, int> mCities;
-	// mCityMap[name] = mCities.Size();
-	// if(mCityMap.HasKey(name))) { return }
-	// int indexA = mCityMap[name];
-	// int indexB = mCityMap[name];
-
-	// City newCity = new City();
-	// Vector<City*> mCities;
-	// if doing it this way, the vector only transfers pointers, but never the data
+	// if doing it with Vector<City*> mCities, the vector only transfers pointers, but never the data
 	// then resize does not cause any issues
 	mCities.PushBack({ name, position });
 	mCityGraph.AddItem(&mCities[mCities.Size() - 1]);
 }
 void GPS::AddCitiesToMap()
 {
-	// this would have to be done AFTER all of the cities are added
-	// then resize will not happen
+	// Resizing vector allocates the data to different memory blocks
+	// If adding more cities than reserved, call this function after all cities have been added
 	for (std::size_t i = 0; i < mCities.Size(); ++i)
 	{
 		mCityGraph.AddItem(&mCities[i]);
@@ -42,42 +35,29 @@ void GPS::AddCitiesToMap()
 
 void GPS::ConnectCities(const CityA8& a, const CityA8& b)
 {
-	int cityAIndex = -1;
-	int cityBIndex = -1;
-
-	for (std::size_t i = 0; i < mCities.Size(); i++)
+	if (!(mCityMap.Has(a.GetName()) && mCityMap.Has(b.GetName())))
 	{
-		if (mCities[i].GetName() == a.GetName() && mCities[i].GetPosition() == a.GetPosition())
-		{
-			cityAIndex = i;
-		}
-
-		if (mCities[i].GetName() == b.GetName() && mCities[i].GetPosition() == b.GetPosition())
-		{
-			cityBIndex = i;
-		}
+		return;
 	}
 
+	int cityAIndex = mCityMap[a.GetName()];
+	int cityBIndex = mCityMap[b.GetName()];
+
+	// because of this the vector is still needed, so not sure if the performance benefit outweighs the memory cost of storing both map and vector
+	// for a vector only version check the previous commit
+	// could also use DistanceSquared for weights and then square root them when needing/printing actual distance, for optimization
 	mCityGraph.AddEdge(cityAIndex, cityBIndex, mCities[cityAIndex].GetPosition().Distance(mCities[cityBIndex].GetPosition()));
 }
 
 float GPS::FindPath(const CityA8& from, const CityA8& to, Vector<const CityA8*>& pathOutput)
 {
-	int cityAIndex = -1;
-	int cityBIndex = -1;
-
-	for (std::size_t i = 0; i < mCities.Size(); i++)
+	if (!(mCityMap.Has(from.GetName()) && mCityMap.Has(to.GetName())))
 	{
-		if (mCities[i].GetName() == from.GetName() && mCities[i].GetPosition() == from.GetPosition())
-		{
-			cityAIndex = i;
-		}
-
-		if (mCities[i].GetName() == to.GetName() && mCities[i].GetPosition() == to.GetPosition())
-		{
-			cityBIndex = i;
-		}
+		return -1.0f;
 	}
+
+	int cityAIndex = mCityMap[from.GetName()];
+	int cityBIndex = mCityMap[to.GetName()];
 
 	return mCityGraph.GetPath(cityAIndex, cityBIndex, pathOutput);
 }
