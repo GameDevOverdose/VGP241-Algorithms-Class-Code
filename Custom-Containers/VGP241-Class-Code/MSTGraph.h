@@ -69,7 +69,7 @@ public:
 
 	void GenerateMST(int startNode)
 	{
-		// going to use prims algorithm
+		// going to use prim's algorithm
 		Reset();
 
 		// use the std version to use a different compare function

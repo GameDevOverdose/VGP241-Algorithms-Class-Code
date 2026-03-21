@@ -62,7 +62,6 @@ namespace Globals
 		}
 	}
 
-
 	template<typename T>
 	void SelectionSort(Vector<T>& values)
 	{
