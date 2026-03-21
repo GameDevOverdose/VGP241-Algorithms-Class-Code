@@ -135,7 +135,7 @@ public:
 		mCount = 0;
 	}
 
-	// data acessors
+	// data accessors
 	ValueType& operator[](const KeyType& key)
 	{
 		std::size_t index = GetTableIndex(key);
@@ -180,7 +180,7 @@ private:
 	// max indices the table can use to store individual values
 	std::size_t mBucketCount = 0;
 
-	// total numver of items in the table
+	// total number of items in the table
 	std::size_t mCount = 0;
 
 	// How many items in a Bucket before we need to resize table
